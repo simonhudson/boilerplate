@@ -1,0 +1,8 @@
+//
+// Global footer
+//
+.footer--global .grid__wrap {
+    @include margin-t-lg();
+    @include padding-y($spacing-lg);
+    border-top:1px solid rgba($palette-accent-primary, .25);
+}

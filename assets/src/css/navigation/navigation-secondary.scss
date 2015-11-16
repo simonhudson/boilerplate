@@ -1,0 +1,41 @@
+//
+// Secondary nav
+//
+.secondary-nav {
+    @include margin-b();
+    @include padding-b();
+    background:#f1f1f1;
+
+    @include bp($bp-desktop) {
+        @include full-width();
+        @include position-tl(4.8em, 0);
+        padding-bottom:0;
+    }
+
+}
+.secondary-nav__list {
+
+    @include bp($bp-desktop) {
+        display:flex;    
+    }
+
+}
+.secondary-nav__item {
+    @include padding-sm();
+    display:block;
+    list-style:none outside;
+
+    @include bp($bp-desktop) {
+        flex-grow:1;
+    }
+
+}
+.secondary-nav__link {
+    color:rgba($palette-body, .65);
+    text-decoration:none;
+
+    @include bp($bp-desktop) {
+        @include padding-sm();
+        display:block;
+    }
+}

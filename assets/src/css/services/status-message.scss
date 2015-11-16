@@ -1,0 +1,72 @@
+//
+// Status message
+//
+.status-msg {
+    display:inline-block;
+    font-weight:normal;
+}
+.status-msg--is-box {
+    @include padding-sm();
+    border:1px solid transparent;
+}
+.status-msg--is-error {
+    color:$palette-status-error;
+
+    &.status-msg--is-box {
+        background:rgba($palette-status-error, .07);
+        border-color:$palette-status-error;
+    }
+    .fa {
+        color:$palette-status-error;
+    }
+
+}
+.status-msg--is-success {
+    color:$palette-status-success;
+
+    &.status-msg--is-box {
+        background:rgba($palette-status-success, .07);
+        border-color:$palette-status-success;
+    }
+    .fa {
+        color:$palette-status-success;
+    }
+
+}
+.status-msg--is-warning {
+    color:$palette-body;
+
+    &.status-msg--is-box {
+        background:rgba($palette-status-warning, .07);
+        border-color:$palette-status-warning;
+    }
+    .fa {
+        color:$palette-status-warning;
+    }
+
+}
+.status-msg--is-info {
+    color:$palette-status-info;
+    
+    &.status-msg--is-box {
+        background:rgba($palette-status-info, .07);
+        border-color:$palette-status-info;
+    }
+    .fa {
+        color:$palette-status-info;
+    }
+
+}
+.status-msg__title {
+    @include margin-b-sm();
+    @include strong();
+    display:inline-block;
+    font-weight:normal;
+    font-size:pxToEm($base-font-size);
+
+    & + .status-msg__body {
+        @include padding-x(0, $spacing-lg);
+        display:block;
+    }
+    
+}

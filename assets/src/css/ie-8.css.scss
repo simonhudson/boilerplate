@@ -1,0 +1,29 @@
+//
+// IE 8
+//
+input[type=checkbox] {
+    border:auto;
+    clip:none;
+    height:auto;
+    margin:0;
+    overflow:visible;
+    padding:0;
+    position:static;
+    width:auto;
+}
+input[type=checkbox] + label,
+input[type=radio] + label {
+    margin-left:5px;
+
+    &:before {
+        content:none;
+    }
+
+}
+input[type=password] {
+    padding-left:20px;
+}
+.toggle-password__toggle {
+    display:none;
+    visibility:hidden;
+}

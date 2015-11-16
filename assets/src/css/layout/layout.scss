@@ -1,0 +1,26 @@
+//
+// Layout
+//
+body:before {
+    // @include hidden();
+    @include padding-sm();
+    @include position-br();
+    background:rgba(orange, .25);
+    content:'BP: 0';
+    position:fixed;
+    z-index:length($global-stacking-order) + 1;
+
+    @include bp($bp-1) {background:rgba(red, .25); content:'BP 1: #{$bp-1}';}
+    @include bp($bp-2) {background:rgba(blue, .25); content:'BP 2: #{$bp-2}';}
+    @include bp($bp-tab-p) {background:rgba(green, .25); content:'BP Tablet (portrait): #{$bp-3}';}
+    @include bp($bp-tab-l) {background:rgba(pink, .25); content:'BP Tablet (landscape): #{$bp-4}';}
+    @include bp($bp-desktop) {background:rgba(purple, .25); content:'BP Desktop: #{$bp-5}';}
+    @include bp($bp-wide) {background:rgba(yellow, .25); content:'BP Desktop wide: #{$bp-6}';}
+}
+body {
+    background:#fff;
+}
+img {
+    height:auto;
+    width:100%;
+}

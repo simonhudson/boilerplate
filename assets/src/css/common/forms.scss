@@ -1,0 +1,141 @@
+//
+// Forms
+//
+/* Remove default browser styling for input types */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance:none;
+    margin:0;
+}
+input[type=number] {
+    -moz-appearance:textfield;
+}
+/* Remove default browser styling for input types */
+input {
+    -webkit-appearance:none;
+    -webkit-appearance:none;
+}
+input,
+option,
+select {
+    @include padding();
+}
+input,
+select,
+textarea {
+    @include border-radius();
+    @include full-width();
+    @include margin-b();
+    border:1px solid rgba($palette-body, .35);
+    font-size:pxToEm($base-font-size);
+
+    &:focus {
+        @include focus-style();
+    }
+
+    @include bp($bp-3) {
+        width:auto;
+    }
+
+}
+select {
+    @include full-width();
+}
+input[type=checkbox],
+input[type=radio] {
+    vertical-align:0;
+    width:auto;
+
+    & + label {
+        @include margin-l-sm();
+        display:inline;
+
+        .status-msg--is-error {
+            display:block;
+            padding:0 0 $spacing 0;
+        }
+
+    }
+
+}
+input[type=file] {
+    background:#fff;
+}
+legend,
+label {
+    @include padding-b-sm();
+    @include strong();
+    display:block;
+
+    .status-msg--is-error {
+        display:block;
+        font-family:$font-sans;
+        padding:0;
+    }
+
+    small {
+        display:block;
+    }
+
+}
+.input__wrap {
+    @include margin-b-lg();
+}
+.select__group--dob {
+    @include display-table();
+
+    .input__wrap {
+        @include display-table-cell();
+        @include padding-r-sm();
+
+        &:last-of-type {
+            padding-right:0;
+        }
+
+        @include bp($bp-tab-p) {
+            width:auto;
+        }
+
+    }
+
+}
+.input-error {
+    border:1px solid $palette-status-error;
+}
+label + .status-msg--is-error {
+    @include margin-b-sm();
+    display:block;
+}
+// .input__wrap {
+//     border: 1px solid $palette-body;
+//     border-top:0;
+//     border-bottom:0;
+//     position:relative;
+
+//     &:before {
+//         @include position-tr(-1px, 0);
+//         background:#fff;
+//         content:'';
+//         display:block;
+//         height:50%;
+//         margin-right:-1px;
+//         width:1px;
+//     }
+//     &:after {
+//         @include position-tl(-1px, 0);
+//         background:#fff;
+//         content:'';
+//         display:block;
+//         height:50%;
+//         margin-left:-1px;
+//         width:1px;
+//     }
+//     input,
+//     select {
+//         @include full-width();
+//         @include padding();
+//         border:0;
+//         border-bottom:1px solid $palette-body;
+//     }
+
+// }

@@ -1,0 +1,38 @@
+//
+// Access nav
+//
+.access-nav__item {
+    display:inline;
+    list-style-type:none;
+}
+.access-nav__link {
+        
+    &,
+    &:hover {
+        color:#fff;
+        font-size:1em;
+        font-weight:bold;
+        height:0;
+        left:-999%;
+        overflow:hidden;
+        padding:.3em;
+        position:absolute;
+        top:0;
+        text-decoration:none;
+    }
+
+    &:active,
+    &:focus {
+        background:$palette-accent-primary;
+        color:#fff;
+        height:auto;
+        left:0;
+        outline:none;
+        padding:.5em 2em .8em 2em;
+        position:absolute;
+        top:0;
+        width:auto;
+        z-index:1000;
+    }
+
+}

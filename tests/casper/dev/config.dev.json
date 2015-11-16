@@ -1,0 +1,27 @@
+{
+	"globalPageTitleFragment" : " | Boilerplate",
+	"pages" : {
+		"index" : {
+			"path" : "",
+			"pageTitle" : "Home",
+			"pageHeading" : "Welcome",
+			"desktopTests" : [
+			],
+			"tabletTests" : [
+			],
+			"mobileTests" : [
+			]
+		},
+		"about" : {
+			"path" : "about-us.php",
+			"pageTitle" : "About us",
+			"pageHeading" : "About us",
+			"desktopTests" : [
+			],
+			"tabletTests" : [
+			],
+			"mobileTests" : [
+			]
+		}
+	}
+}

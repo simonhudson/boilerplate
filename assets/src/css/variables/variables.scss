@@ -1,0 +1,59 @@
+//
+// Variables
+//
+
+// Base
+$base-font-size: 16px;
+
+// Spacing
+$spacing:       pxToEm($base-font-size);
+$spacing-sm:    $spacing / 2;
+$spacing-lg:    $spacing * 2;
+$spacing-xlg:   $spacing * 4;
+
+// Colour palette
+$palette-body: #333;
+
+$palette-accent-primary:    #7b91ff;
+$palette-accent-secondary:  #8fde76;
+$palette-accent-tertiary:   #ffb400;
+
+$palette-status-error:      #ef0000;
+$palette-status-success:    #28d300;
+$palette-status-warning:    #ffd800;
+$palette-status-info:       #00c7eb;
+
+// Typography
+$font-sans: 'opensans_regular', arial, helvetica, sans-serif;
+$font-bold: 'opensans_semibold', $font-sans;
+$font-code: "Courier New", Courier, monospace;
+
+// Devices
+$tab-p-width:   768px;
+$tab-l-width:   1024px;
+$desktop-width: 1280px;
+$desktop-wide:  1792px;
+
+// Breakpoints
+$bp-1: 410px; // 25.625em
+$bp-2: 640px; // 40em
+$bp-3: $tab-p-width; // 48em
+$bp-4: $tab-l-width; // 64em
+$bp-5: $desktop-width; // 75em
+$bp-6: $desktop-wide; // 120em
+$bp-tab-p: $bp-3;
+$bp-tab-l: $bp-4;
+$bp-desktop: $bp-5;
+$bp-wide: $bp-6;
+
+// Grid
+$grid__gutter: 20px;
+$grid__max-cols: 18;
+$grid__width--tab-p: $tab-p-width;
+$grid__width--tab-l: $tab-l-width;
+$grid__width--desktop: $desktop-width;
+$grid__width--wide: $desktop-wide;
+
+// Layout
+$global-header-height:pxToEm(70px);
+$global-stacking-order: 'global-header';

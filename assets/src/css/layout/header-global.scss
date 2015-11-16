@@ -1,0 +1,64 @@
+//
+// Global header
+//
+.header--global {
+    background:#ddd;
+    min-height:$global-header-height;
+
+    .grid__wrap {
+        position:relative;
+    }
+
+    [class*=grid__span] {
+        margin-bottom:0;
+    }
+
+}
+.logo {
+    @include padding-y($spacing, 0);
+
+    img {
+        height:$global-header-height - $spacing-lg;
+        width:auto;
+    }
+
+}
+.header--has-secondary-nav {
+
+    @include bp($bp-desktop) {
+        min-height:$global-header-height * 2;
+    }
+
+}
+.header--global__logo-link {
+    @include animate(color);
+    @include faux-h3();
+    @include padding-y();
+    @include strong();
+    color:rgba($palette-body, .6);
+    text-decoration:none;
+
+    &:hover,
+    &:focus {
+        color:$palette-body;
+    }
+
+}
+.header--global__logout {
+    @include position-tr($spacing, $spacing-xlg);
+    width:auto;
+
+    span:first-of-type {
+        @include hidden();
+
+        @include bp($bp-2) {
+            @include visible();
+        }
+
+    }
+
+    @include bp($bp-desktop) {
+        @include position-tr($spacing);
+    }
+
+}

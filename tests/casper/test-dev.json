@@ -1,0 +1,4 @@
+{
+	"host":			"http://localhost:8080/simonhudson.github.io/boilerplate/",
+	"configFile":	"dev/config.dev.json"
+}

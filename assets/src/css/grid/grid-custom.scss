@@ -1,0 +1,140 @@
+.grid__wrap {
+    display:flex;
+    flex-wrap:wrap;
+    margin:0 auto;
+    width:100%;
+
+    @include bp($bp-tab-p) {
+        width:$grid__width--tab-p;
+    }
+
+    @include bp($bp-tab-l) {
+        width:$grid__width--tab-l;
+    }
+
+    @include bp($bp-desktop) {
+        width:$grid__width--desktop;
+    }
+
+    @include bp($bp-wide) {
+        width:$grid__width--wide;
+    }
+
+}
+.grid-example {
+
+    [class*=grid__span] {
+        background:pink;
+    }
+
+}
+[class*="grid__span"] {
+    @include full-width();
+    margin:$grid__gutter;
+    margin-top:0;   
+
+    &.to-edge {
+        @include margin-x(0);
+
+        @include bp($bp-tab-p) {
+            @include margin-x($grid__gutter);
+        }
+
+    }
+}
+
+@include bp($bp-tab-p) {
+
+    @for $i from 1 through $grid__max-cols {
+
+        .grid__span--#{$i} {
+            width: ($grid__width--tab-p / ($grid__max-cols / $i) - ($grid__gutter * 2));
+        }  
+
+    }
+
+    .grid__span--quarter {
+        width: ($grid__width--tab-p / 4) - ($grid__gutter * 2);
+    }
+
+    .grid__span--third {
+        width: ($grid__width--tab-p / 3) - ($grid__gutter * 2);
+    }
+
+    .grid__span--half {
+        width: ($grid__width--tab-p / 2) - ($grid__gutter * 2);
+    }
+
+}
+
+@include bp($bp-tab-l) {
+
+    @for $i from 1 through $grid__max-cols {
+
+        .grid__span--#{$i} {
+            width: ($grid__width--tab-l / ($grid__max-cols / $i) - ($grid__gutter * 2));
+        }  
+
+    }
+
+    .grid__span--quarter {
+        width: ($grid__width--tab-l / 4) - ($grid__gutter * 2);
+    }
+
+    .grid__span--third {
+        width: ($grid__width--tab-l / 3) - ($grid__gutter * 2);
+    }
+
+    .grid__span--half {
+        width: ($grid__width--tab-l / 2) - ($grid__gutter * 2);
+    }
+
+}
+
+@include bp($bp-desktop) {
+
+    @for $i from 1 through $grid__max-cols {
+
+        .grid__span--#{$i} {
+            width: ($grid__width--desktop / ($grid__max-cols / $i) - ($grid__gutter * 2));
+        }  
+
+    }
+
+    .grid__span--quarter {
+        width: ($grid__width--desktop / 4) - ($grid__gutter * 2);
+    }
+
+    .grid__span--third {
+        width: ($grid__width--desktop / 3) - ($grid__gutter * 2);
+    }
+
+    .grid__span--half {
+        width: ($grid__width--desktop / 2) - ($grid__gutter * 2);
+    }
+
+}
+
+@include bp($bp-wide) {
+
+    @for $i from 1 through $grid__max-cols {
+
+        .grid__span--#{$i} {
+            width: ($grid__width--wide / ($grid__max-cols / $i) - ($grid__gutter * 2));
+        }  
+
+    }
+
+    .grid__span--quarter {
+        width: ($grid__width--wide / 4) - ($grid__gutter * 2);
+    }
+
+    .grid__span--third {
+        width: ($grid__width--wide / 3) - ($grid__gutter * 2);
+    }
+
+    .grid__span--half {
+        width: ($grid__width--wide / 2) - ($grid__gutter * 2);
+    }
+
+}

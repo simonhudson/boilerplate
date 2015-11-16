@@ -1,0 +1,43 @@
+//
+// Overlay
+//
+.js-modal__overlay {
+    @include overlay();
+
+    &.is-open {
+        display:block;
+    }
+
+}
+.js-modal__overlay--full-screen {
+    @include overlay();
+}
+.js-modal__content-wrap {
+    @include padding-lg();
+    background:#fff;
+    bottom:0;
+    left:0;
+    margin:auto;
+    padding-top:$spacing-xlg + $spacing;
+    position:fixed;
+    right:0;
+    top:50%;
+    transform:translateY(-50%);
+    width:96%;
+
+    @include bp($bp-3) {
+        width:55%;
+    }
+
+}
+.js-modal__content {
+    height:100%;
+    overflow:auto;
+}
+.js-modal__close {
+    @include border-radius(100%, 99%);
+    @include padding-sm();
+    @include position-tr($spacing);
+    border:2px solid $palette-body;
+    color:$palette-body;
+}

@@ -1,0 +1,20 @@
+//
+// Show/hide
+//
+.js-showhide-toggle {
+    
+    [class*=fa-chevron] {
+        @include animate(transform);
+        @include margin-r-sm();
+        vertical-align:1px;
+    }
+
+    &.active {
+
+        [class*=fa-chevron] {
+            transform:rotate(-179.99999deg); // -179. to force anti-clockwise rotation. -180deg rotates clockwise
+        }
+
+    }
+
+}

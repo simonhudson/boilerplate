@@ -1,0 +1,14 @@
+//
+// Access codes
+//
+.new-codes__list {
+    @include margin-x(0, -$spacing);
+}
+.new-codes__item {
+    @include float-l();
+    @include padding-x();
+    @include strong();
+    @include third-width();
+    list-style:none outside;
+    word-wrap:break-word;
+}

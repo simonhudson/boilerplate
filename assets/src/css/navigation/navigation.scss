@@ -1,0 +1,16 @@
+//
+// Navigation
+//
+a {
+    color:darken($palette-accent-primary, 15%);
+
+    &:hover,
+    &:focus {
+        text-decoration:none;
+    }
+
+    &:focus {
+        @include focus-style();
+    }
+    
+}

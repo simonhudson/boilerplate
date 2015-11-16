@@ -1,0 +1,48 @@
+//
+// Reset
+//
+* {
+    box-sizing: border-box;
+}
+*, fieldset {
+    margin:0;
+    padding:0;
+}
+html {
+    font-size:62.5%;
+}
+body {
+    background:#fff;
+    color:$palette-body;
+    font-family:$font-sans;
+    font-size:pxToEm($base-font-size * 1.4);
+}
+html,
+body {
+    height:100%;
+    min-height:100%;
+}
+fieldset,
+img {
+    border:none;
+}
+strong,
+a,
+em,
+pre {
+    font-size:inherit;
+}
+strong {
+    @include strong();
+}
+pre,
+code {
+    display:inline;
+    font-family:$font-code;
+}
+abbr,
+acronym {
+    border-bottom:1px dotted $palette-body;
+    cursor:help;
+    font-family:inherit;
+}

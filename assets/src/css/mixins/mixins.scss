@@ -1,0 +1,337 @@
+//
+// Mixins
+//
+
+// Media queries
+@mixin bp($bp-val) {
+    @media all and (min-width: $bp-val) {
+        @content;
+    }
+}
+
+// Typography
+@mixin headings-common() {
+    @include font-weight-normal();
+    line-height:pxToEm($base-font-size * 1.6);
+}
+@mixin faux-h1() {
+    @include headings-common();
+    font-size:pxToEm($base-font-size * 2.4);
+    padding-bottom:pxToEm($base-font-size * 0.4);
+
+}
+@mixin faux-h2() {
+    @include headings-common();
+    font-size:pxToEm($base-font-size * 2.0);
+    padding-bottom:pxToEm($base-font-size * 0.6);  
+}
+@mixin faux-h3() {
+    @include headings-common();
+    font-size:pxToEm($base-font-size * 1.6);
+    padding-bottom:pxToEm($base-font-size * 0.8);  
+}
+@mixin faux-h4() {
+    @include headings-common();
+    font-size:pxToEm($base-font-size * 1.4);   
+}
+@mixin faux-h5() {
+    @include headings-common();
+    font-size:pxToEm($base-font-size * 1.2);   
+}
+@mixin faux-h6() {
+    @include headings-common();
+    @include strong();
+    font-size:pxToEm($base-font-size * 1);
+    padding-bottom:pxToEm($base-font-size * 0.6);
+}
+@mixin font-weight-normal() {
+    font-weight:normal;
+}
+
+// Utilities
+@mixin full-width() {
+    width:100%;
+}
+@mixin half-width() {
+    width:50%;
+}
+@mixin third-width() {
+    width:33.33333%;
+}
+@mixin strong() {
+    font-family: $font-bold;
+    font-weight:normal;
+}
+@mixin hidden() {
+    font-size:0 !important;
+    height:0 !important;
+    left:-999% !important;
+    line-height:0 !important;
+    overflow:hidden !important;
+    position:absolute !important;
+    width:0 !important;
+}
+@mixin visible() {
+    font-size:inherit !important;
+    height:auto !important;
+    left:auto !important;
+    line-height:inherit !important;
+    overflow:auto !important;
+    position:static !important;
+    width:auto !important;
+}
+@mixin float-l() {
+    float:left;
+}
+@mixin float-r() {
+    float:right;
+}
+@mixin clear() {
+    clear:both
+}
+@mixin rotate($deg:0) {
+    transform:rotate($deg);
+}
+@mixin is-disabled() {
+    opacity:.25;
+
+    & input,
+    button,
+    .button {
+        opacity:1;
+    }
+
+}
+@mixin sticky($position: top, $value: 0) {
+    position:fixed;
+    $position:$value;
+}
+@mixin not-sticky() {
+    position:static;
+}
+
+// Positioning
+@mixin position-tl($top:0, $left:$top) {
+    left:$left;
+    position:absolute;
+    top:$top;
+}
+@mixin position-tr($top:0, $right:$top) {
+    position:absolute;
+    right:$right;
+    top:$top;
+}
+@mixin position-br($bottom:0, $right:$bottom) {
+    bottom:$bottom;
+    position:absolute;
+    right:$right;
+}
+@mixin position-bl($bottom:0, $left:$bottom) {
+    bottom:$bottom;
+    left:$left;
+    position:absolute;
+}
+
+// Layout
+@mixin display-table() {
+    border-collapse:collapse;
+    display:table;
+}
+@mixin display-table-cell() {
+    display:table-cell;
+    text-align:center;
+    vertical-align:middle;
+    width:1%;
+}
+@mixin center() {
+    margin:0 auto;
+}
+@mixin center-content {
+    text-align:center;
+}
+@mixin border-radius($tl: 2px, $tr: $tl, $br: $tl, $bl: $br) {
+    -webkit-border-radius:$tl $tr $br $bl;
+       -moz-border-radius:$tl $tr $br $bl;
+         -o-border-radius:$tl $tr $br $bl;
+            border-radius:$tl $tr $br $bl;
+}
+@mixin overlay($background: #000, $opacity: .90) {
+    @include full-width();
+    @include position-tl();
+    background:rgba($background, $opacity);
+    display:none;
+    height:100%;
+    min-height:100%;
+    position:fixed;
+    z-index:length($global-stacking-order) + 1;
+}
+
+// Buttons
+@mixin btn() {
+    @include border-radius();
+    @include margin-x(auto);
+    @include margin-b();
+    @include padding-x($spacing);
+    @include padding-y(5px);
+    @include strong();
+    // @include vert-gradient($palette-accent-primary, darken($palette-accent-primary, 10%));
+    background:$palette-accent-primary;
+    border:1px solid darken($palette-accent-primary, 20%);
+    box-shadow:inset 0 0 1px #fff;
+    color:#fff;
+    cursor:pointer;
+    display:inline-block;
+    font-size:pxToEm($base-font-size * 1);
+    position:relative;
+    text-align:center;
+    text-decoration:none;
+    width:75%;
+
+    &.invert {
+        background:#fff;
+        color:$palette-body;
+    }
+
+    @include bp($bp-1) {
+        width:auto;
+    }
+
+}
+@mixin btn--primary() {
+    @include btn();
+    background:$palette-body;
+    color:#fff;
+
+    &.invert {
+        background:#fff;
+        color:$palette-body;
+    }
+
+}
+@mixin btn--secondary() {
+    @include btn();
+    background:transparent;
+    border-color:$palette-accent-primary;
+    box-shadow:none;
+    color:$palette-accent-primary;
+
+    &.invert {
+        border-color:#fff;
+        color:#fff;
+    }
+
+}
+
+// UI
+@mixin animate($property, $duration: .3s) {
+    -webkit-transition:$property $duration linear;
+       -moz-transition:$property $duration linear;
+         -ms-transition:$property $duration linear;
+            transition:$property $duration linear;
+}
+@mixin box-shadow($x:0, $y:0, $spread:$spacing-sm, $color:#000) {
+    -webkit-box-shadow:$x $y $spread $color;
+       -moz-box-shadow:$x $y $spread $color;
+            box-shadow:$x $y $spread $color;
+}
+@mixin vert-gradient($colorTop, $colorBottom) {
+    background:$colorTop;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='$colorTop', endColorstr='$colorBottom');
+    background:-webkit-gradient(linear, left top, left bottom, from($colorTop), to($colorBottom));
+    background:-moz-linear-gradient(top, $colorTop, $colorBottom);
+}
+@mixin triangle($direction: 'up', $size: $spacing-sm, $color: #222) {
+    content:'';
+    display:block;
+    height:0;
+    position:absolute;
+    width: 0;
+    @if ($direction == 'up'){
+        border-bottom: $size solid $color;
+        border-left: 1/2 * $size solid transparent;
+        border-right: 1/2 * $size solid transparent;
+    }
+    @else if ($direction == 'down'){
+        border-top: $size solid $color;
+        border-left: 1/2 * $size solid transparent;
+        border-right: 1/2 * $size solid transparent;
+    }
+    @else if ($direction == 'left'){
+        border-top: 1/2 * $size solid transparent;
+        border-bottom: 1/2 * $size solid transparent;
+        border-right: $size solid $color;
+    }
+    @else if ($direction == 'right'){
+        border-top: 1/2 * $size solid transparent;
+        border-bottom: 1/2 * $size solid transparent;
+        border-left: $size solid $color;
+    }
+}
+@mixin focus-style() {
+    // outline:2px solid orange;
+}
+
+// Padding / Margin
+@mixin padding-x($valueRight: $spacing, $valueLeft: $valueRight) {padding-right:$valueRight; padding-left:$valueLeft;}
+@mixin padding-y($valueTop: $spacing, $valueBottom: $valueTop) {padding-top:$valueTop; padding-bottom:$valueBottom;}
+@mixin padding() {padding:$spacing;}
+@mixin padding-t() {padding-top:$spacing;}
+@mixin padding-r() {padding-right:$spacing;}
+@mixin padding-b() {padding-bottom:$spacing;}
+@mixin padding-l() {padding-left:$spacing;}
+
+@mixin padding-sm() {padding:$spacing-sm;}
+@mixin padding-t-sm() {padding-top:$spacing-sm;}
+@mixin padding-r-sm() {padding-right:$spacing-sm;}
+@mixin padding-b-sm() {padding-bottom:$spacing-sm;}
+@mixin padding-l-sm() {padding-left:$spacing-sm;}
+
+@mixin padding-lg() {padding:$spacing-lg;}
+@mixin padding-t-lg() {padding-top:$spacing-lg;}
+@mixin padding-r-lg() {padding-right:$spacing-lg;}
+@mixin padding-b-lg() {padding-bottom:$spacing-lg;}
+@mixin padding-l-lg() {padding-left:$spacing-lg;}
+
+@mixin padding-xlg() {padding:$spacing-xlg;}
+@mixin padding-t-xlg() {padding-top:$spacing-xlg;}
+@mixin padding-r-xlg() {padding-right:$spacing-xlg;}
+@mixin padding-b-xlg() {padding-bottom:$spacing-xlg;}
+@mixin padding-l-xlg() {padding-left:$spacing-xlg;}
+
+@mixin no-padding() {padding:0 !important;}
+@mixin no-padding-t() {padding-top:0 !important;}
+@mixin no-padding-r() {padding-right:0 !important;}
+@mixin no-padding-b() {padding-bottom:0 !important;}
+@mixin no-padding-l() {padding-left:0 !important;}
+
+@mixin margin-x($valueRight: $spacing, $valueLeft: $valueRight) {margin-right:$valueRight; margin-left:$valueLeft;}
+@mixin margin-y($valueTop: $spacing, $valueBottom: $valueTop) {margin-top:$valueTop; margin-bottom:$valueBottom;}
+@mixin margin() {margin:$spacing;}
+@mixin margin-t() {margin-top:$spacing;}
+@mixin margin-r() {margin-right:$spacing;}
+@mixin margin-b() {margin-bottom:$spacing;}
+@mixin margin-l() {margin-left:$spacing;}
+
+@mixin margin-sm() {margin:$spacing-sm;}
+@mixin margin-t-sm() {margin-top:$spacing-sm;}
+@mixin margin-r-sm() {margin-right:$spacing-sm;}
+@mixin margin-b-sm() {margin-bottom:$spacing-sm;}
+@mixin margin-l-sm() {margin-left:$spacing-sm;}
+
+@mixin margin-lg() {margin:$spacing-lg;}
+@mixin margin-t-lg() {margin-top:$spacing-lg;}
+@mixin margin-r-lg() {margin-right:$spacing-lg;}
+@mixin margin-b-lg() {margin-bottom:$spacing-lg;}
+@mixin margin-l-lg() {margin-left:$spacing-lg;}
+
+@mixin margin-xlg() {margin:$spacing-xlg;}
+@mixin margin-t-xlg() {margin-top:$spacing-xlg;}
+@mixin margin-r-xlg() {margin-right:$spacing-xlg;}
+@mixin margin-b-xlg() {margin-bottom:$spacing-xlg;}
+@mixin margin-l-xlg() {margin-left:$spacing-xlg;}
+
+@mixin no-margin() {margin:0 !important;}
+@mixin no-margin-t() {margin-top:0 !important;}
+@mixin no-margin-r() {margin-right:0 !important;}
+@mixin no-margin-b() {margin-bottom:0 !important;}
+@mixin no-margin-l() {margin-left:0 !important;}

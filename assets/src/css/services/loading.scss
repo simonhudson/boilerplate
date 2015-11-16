@@ -1,0 +1,20 @@
+//
+// Loading
+//
+.loading__overlay {
+    @include overlay();
+}
+.loading__img {
+    @include border-radius();
+    @include padding-y();
+    background:transparent;
+    color:#fff;
+    margin:$spacing-xlg auto;
+    text-align:center;  
+    width:20%;
+
+    p {
+        @include padding-y($spacing-sm, 0);
+    }
+
+}

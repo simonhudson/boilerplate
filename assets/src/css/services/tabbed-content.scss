@@ -1,0 +1,18 @@
+//
+// Tabbed content
+//
+.js-tabs__list {
+    
+    @include bp($bp-tab-p) {
+        display:flex;
+    }
+
+}
+.js-tabs__item {
+    list-style:none outside;
+
+    @include bp($bp-tab-p) {
+        flex-grow:1;
+    }
+
+}

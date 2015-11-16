@@ -1,0 +1,79 @@
+//
+// Main navigation
+//
+$nav-border: 1px solid rgba($palette-body, .3);
+
+.main-nav {
+    // @include full-width();
+
+    @include bp($bp-desktop) {
+        @include full-width();
+        display:block;
+    }   
+
+}
+.main-nav__list {
+
+    @include bp($bp-desktop) {
+        display:flex;
+        position:relative;
+        text-align:center;
+    }
+
+}
+.main-nav__item {
+    list-style:none outside;
+    padding:0;
+
+    @include bp($bp-desktop) {
+        flex-grow:1;
+    }
+
+}
+.main-nav__link {
+    // @include animate(background);
+    // @include border-radius($spacing-sm);
+    @include padding();
+    @include strong();
+    display:block;
+    text-decoration:none;
+
+    span {
+        @include animate(color);
+        color:rgba($palette-body, .65);
+    }
+
+    &:hover,
+    &:focus,
+    &.current {
+        background:#f1f1f1;
+
+        span {
+            color:$palette-body;
+        }
+
+    }
+
+    @include bp($bp-desktop) {
+        @include padding-y($spacing * 1.5);
+        @include padding-x($spacing-lg);
+    }
+
+}
+.main-nav__text {
+}
+.main-nav__toggle {
+    @include position-tr($spacing);
+    color:$palette-body;
+    display:inline-block;
+
+    &:hover,
+    &:focus {
+        color:$palette-accent-primary;
+    }
+
+    @include bp($bp-desktop) {
+        @include hidden();
+    }
+
+}

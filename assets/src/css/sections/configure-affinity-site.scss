@@ -1,0 +1,16 @@
+//
+// Configure Affinity site
+//
+.current-site-logo {
+    @include float-l();
+    @include half-width();
+    @include padding-l-xlg();
+}
+.current-site-logo--is-active {
+    border-left:1px solid rgba($palette-body, .35);
+}
+.current-site-logo__image {
+    height:auto;
+    max-width:100%;
+    width:auto;
+}

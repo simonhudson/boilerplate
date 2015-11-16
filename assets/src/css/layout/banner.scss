@@ -1,0 +1,9 @@
+//
+// Banner
+//
+.banner {
+    @include padding-y();
+}
+.banner-1 {
+    background:rgba($palette-accent-primary, .25);
+}

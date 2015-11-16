@@ -1,0 +1,19 @@
+//
+// Typography
+//
+p,
+li {
+    @include padding-y(0, pxToEm($base-font-size * 1));
+    line-height:pxToEm($base-font-size * 1.8);
+
+    &:last-child {
+        padding-bottom:0;
+    }
+
+}
+h1, .faux-h1 {@include faux-h1();}
+h2, .faux-h2 {@include faux-h2();}
+h3, .faux-h3 {@include faux-h3();}
+h4, .faux-h4 {@include faux-h4();}
+h5, .faux-h5 {@include faux-h5();}
+h6, .faux-h6 {@include faux-h6();}
