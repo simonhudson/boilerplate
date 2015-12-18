@@ -73,7 +73,15 @@
 
         .grid__span--#{$i} {
             width: ($grid__width--tab-l / ($grid__max-cols / $i) - ($grid__gutter * 2));
-        }  
+        }
+
+        .grid__pull-left--#{$i} {
+            margin-right: pxToEm($grid__width--tab-l / ($grid__max-cols / $i) + $grid__gutter);
+        }
+
+        .grid__pull-right--#{$i} {
+            margin-left: pxToEm($grid__width--tab-l / ($grid__max-cols / $i) + $grid__gutter);
+        }
 
     }
 
@@ -99,6 +107,14 @@
             width: ($grid__width--desktop / ($grid__max-cols / $i) - ($grid__gutter * 2));
         }  
 
+        .grid__pull-left--#{$i} {
+            margin-right: pxToEm($grid__width--desktop / ($grid__max-cols / $i) + $grid__gutter);
+        }
+
+        .grid__pull-right--#{$i} {
+            margin-left: pxToEm($grid__width--desktop / ($grid__max-cols / $i) + $grid__gutter);
+        }
+
     }
 
     .grid__span--quarter {
@@ -122,6 +138,14 @@
         .grid__span--#{$i} {
             width: ($grid__width--wide / ($grid__max-cols / $i) - ($grid__gutter * 2));
         }  
+
+        .grid__pull-left--#{$i} {
+            margin-right: pxToEm($grid__width--wide / ($grid__max-cols / $i) + $grid__gutter);
+        }
+
+        .grid__pull-right--#{$i} {
+            margin-left: pxToEm($grid__width--wide / ($grid__max-cols / $i) + $grid__gutter);
+        }
 
     }
 
