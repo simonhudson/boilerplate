@@ -62,3 +62,22 @@
     }
 
 }
+.header-icons {
+    @include position-tr($spacing);
+
+    @include bp($switch-layout) {
+        @include hidden();
+    }
+
+}
+.header-icons__link {
+    @include margin-x($spacing-sm);
+    color:$palette-body;
+    text-decoration:none;
+}
+.header-icons__text {
+    // @include hidden();
+    @include margin-x(0, 3px);
+    @include strong();
+    vertical-align:20%;
+}

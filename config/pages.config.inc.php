@@ -80,6 +80,12 @@ $pages = (object) array(
         'mainNavText' => 'Register',
         'pageTitle' => 'Register',
         'omitFromNav' => true
+    ),
+    'account' => (object) array(
+        'url' => 'account',
+        'mainNavText' => 'Your account',
+        'pageTitle' => 'Your account',
+        'omitFromNav' => true
     )
 
 );

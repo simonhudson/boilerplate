@@ -21,6 +21,7 @@ if (isLoggedIn() && $currentPage == 'login') {
 // }
 if (isset($_POST['login__submit']) && $_POST['login__password'] === 'admin') {
     $_SESSION['isLoggedIn'] = true;
+    $_SESSION['username'] = $_POST['login__password'];
     header('Location: '.(isset($pages->$returnUrl->url) ? $pages->$returnUrl->url : $pages->home->url));
 }
 
@@ -94,10 +95,18 @@ if (isset($_POST['login__submit']) && $_POST['login__password'] === 'admin') {
                     </ul>
                 </nav>
             </div>
-            <a class="main-nav__toggle js-showhide-toggle" data-showhide-target="sh-main-nav" href="#">
-                <span class="fa fa-bars fa-2x"></span>
-                <span class="main-nav-toggle__text">Menu</span>
-            </a>
+            <div class="header-icons">
+                <a class="main-nav__toggle js-showhide-toggle header-icons__link" data-showhide-target="sh-main-nav" href="#">
+                    <span class="fa fa-bars fa-2x"></span>
+                    <span class="header-icons__text hidden">Menu</span>
+                </a>
+                <?php if (isLoggedIn()): ?>
+                    <a class="header-icons__link" data-test-hook="header__<?= $pages->account->url; ?>" href="<?= $pages->account->url; ?>">
+                        <span class="fa fa-user fa-2x"></span>
+                        <span class="header-icons__text"><?= $_SESSION['username']; ?></span>
+                    </a>
+                <?php endif; ?>
+            </div>
         </div>
     </header>
 

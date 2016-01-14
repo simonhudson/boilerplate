@@ -1,23 +1,9 @@
-input[type=checkbox] {
-  border: auto;
-  clip: none;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  padding: 0;
-  position: static;
-  width: auto; }
+select {
+  background-image: none; }
 
-input[type=checkbox] + label,
-input[type=radio] + label {
-  margin-left: 5px; }
-  input[type=checkbox] + label:before,
-  input[type=radio] + label:before {
-    content: none; }
-
-input[type=password] {
-  padding-left: 20px; }
-
-.toggle-password__toggle {
-  display: none;
-  visibility: hidden; }
+.select__group--dob {
+  float: left;
+  width: 100%; }
+  .select__group--dob .input__wrap {
+    float: left;
+    width: 33.33333%; }
