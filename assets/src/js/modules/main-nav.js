@@ -3,7 +3,7 @@ Main navigation
 */
 var MainNav = {
 
-    showNavAt: 768,
+    showNavAt: 1280,
 
     init: function() {
         var mainNavObj = {

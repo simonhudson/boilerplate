@@ -69,7 +69,7 @@ if (isset($_POST['login__submit']) && !empty($_POST['login__email']) && $_POST['
                 </p>   
             </div>
             <?php if (isset($_SESSION['isLoggedIn'])): ?>
-            <div class="grid__span--14">
+            <div class="grid__span--14 main-nav__wrap">
                 <nav class="main-nav" data-showhide-content="sh-main-nav" id="main-nav">
                     <ul class="main-nav__list">
                         <?php foreach($pages as $page): ?>

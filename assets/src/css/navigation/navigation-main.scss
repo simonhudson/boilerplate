@@ -3,10 +3,18 @@
 //
 $nav-border: 1px solid rgba($palette-body, .3);
 
+.main-nav__wrap {
+    @include center-content();
+    @include full-width();
+
+    @include bp($switch-layout) {
+    }
+
+}
 .main-nav {
     // @include full-width();
 
-    @include bp($bp-desktop) {
+    @include bp($switch-layout) {
         @include full-width();
         display:block;
     }   
@@ -14,7 +22,7 @@ $nav-border: 1px solid rgba($palette-body, .3);
 }
 .main-nav__list {
 
-    @include bp($bp-desktop) {
+    @include bp($switch-layout) {
         display:flex;
         position:relative;
         text-align:center;
@@ -25,7 +33,7 @@ $nav-border: 1px solid rgba($palette-body, .3);
     list-style:none outside;
     padding:0;
 
-    @include bp($bp-desktop) {
+    @include bp($switch-layout) {
         flex-grow:1;
     }
 
@@ -54,7 +62,7 @@ $nav-border: 1px solid rgba($palette-body, .3);
 
     }
 
-    @include bp($bp-desktop) {
+    @include bp($switch-layout) {
         @include padding-y($spacing * 1.5);
         @include padding-x($spacing-lg);
     }
@@ -64,7 +72,7 @@ $nav-border: 1px solid rgba($palette-body, .3);
 }
 .main-nav__toggle {
     @include position-tr($spacing);
-    color:$palette-body;
+    color:$palette-accent-primary;
     display:inline-block;
 
     &:hover,
@@ -72,7 +80,7 @@ $nav-border: 1px solid rgba($palette-body, .3);
         color:$palette-accent-primary;
     }
 
-    @include bp($bp-desktop) {
+    @include bp($switch-layout) {
         @include hidden();
     }
 
