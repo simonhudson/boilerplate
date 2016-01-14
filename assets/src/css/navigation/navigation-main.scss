@@ -68,12 +68,11 @@ $nav-border: 1px solid rgba($palette-body, .3);
     }
 
 }
-.main-nav__text {
-}
 .main-nav__toggle {
     @include position-tr($spacing);
     color:$palette-accent-primary;
     display:inline-block;
+    text-decoration:none;
 
     &:hover,
     &:focus {
@@ -84,4 +83,10 @@ $nav-border: 1px solid rgba($palette-body, .3);
         @include hidden();
     }
 
+}
+.main-nav-toggle__text {
+    @include hidden();
+    @include margin-x(0, 3px);
+    @include strong();
+    vertical-align:25%;
 }

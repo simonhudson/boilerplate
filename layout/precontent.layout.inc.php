@@ -99,13 +99,9 @@ if (isset($_POST['login__submit']) && $_POST['login__password'] === 'admin') {
                     </ul>
                 </nav>
             </div>
-<!--             <a class="btn header--global__logout" data-test-hook="global-header__logout" href="<?= $pages->logout->url; ?>">
-                <span><?= $pages->logout->mainNavText; ?></span>
-                <span class="fa fa-sign-out"></span>
-            </a> -->
             <a class="main-nav__toggle js-showhide-toggle" data-showhide-target="sh-main-nav" href="#">
                 <span class="fa fa-bars fa-2x"></span>
-                <span class="hidden">Menu</span>
+                <span class="main-nav-toggle__text">Menu</span>
             </a>
         </div>
     </header>
