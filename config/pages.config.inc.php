@@ -3,12 +3,11 @@
 $siteRoot = './';
 
 $pages = (object) array(
-
     'login' => (object) array(
         'url' => 'login',
-        'mainNavText' => 'Login',
+        'mainNavText' => 'Log in',
         'pageTitle' => 'Log in',
-        'omitFromNav' => true
+        'omitFromNav' => true    
     ),
     'logout' => (object) array(
         'url' => 'logout',
@@ -70,7 +69,6 @@ $pages = (object) array(
         'pageTitle' => 'Commercial',
         'secondaryNav' => 'commercial'
     ),
-
     'grid' => (object) array(
         'url' => 'grid',
         'mainNavText' => 'Grid',

@@ -3,6 +3,11 @@
 // If you are using session_name("something"), don't forget it now!
 session_start();
 
+include('config/pages.config.inc.php');
+include('functions/functions.inc.php');
+
+$returnUrl = getQueryStringValue('returnUrl');
+
 // Unset all of the session variables.
 $_SESSION = array();
 
@@ -19,5 +24,5 @@ if (ini_get("session.use_cookies")) {
 // Finally, destroy the session.
 session_destroy();
 
-header('Location: ./login.php');
+header('Location: '.$pages->$returnUrl->url);
 ?>

@@ -8,16 +8,20 @@ include('functions/functions.inc.php');
 
 $currentPage = currentPage();
 
-if (isset($_SESSION['isLoggedIn']) && $currentPage == 'login') {
-    header('Location: '.$pages->home->url);
+$currentPage = currentPage();
+if (isset($_POST['login__returnUrl'])) {
+    $returnUrl = $_POST['login__returnUrl'];
 }
 
-if (!isset($_SESSION['isLoggedIn']) && $currentPage != 'login' && $currentPage != 'register') {
-    header('Location: '.$pages->login->url);
-}
-if (isset($_POST['login__submit']) && !empty($_POST['login__email']) && $_POST['login__password'] == 'bar') {
-    $_SESSION['isLoggedIn'] = true;
+if (isLoggedIn() && $currentPage == 'login') {
     header('Location: '.$pages->home->url);
+}
+// if (!isset($_SESSION['isLoggedIn']) && $currentPage != 'login' && $currentPage != 'register') {
+//     header('Location: '.$pages->login->url);
+// }
+if (isset($_POST['login__submit']) && $_POST['login__password'] === 'admin') {
+    $_SESSION['isLoggedIn'] = true;
+    header('Location: '.(isset($pages->$returnUrl->url) ? $pages->$returnUrl->url : $pages->home->url));
 }
 
 ?>
@@ -58,7 +62,6 @@ if (isset($_POST['login__submit']) && !empty($_POST['login__email']) && $_POST['
         </div>
     </noscript>
 
-    <?php if (isset($_SESSION['isLoggedIn'])): ?>
     <header class="header--global <?php foreach($pages as $page): ?><?= ($page->url === $currentPage ? ' header--has-secondary-nav' : ''); ?><?php endforeach; ?>">
         <div class="grid__wrap">
             <div class="grid__span--4 logo">
@@ -68,7 +71,6 @@ if (isset($_POST['login__submit']) && !empty($_POST['login__email']) && $_POST['
                     </a>
                 </p>   
             </div>
-            <?php if (isset($_SESSION['isLoggedIn'])): ?>
             <div class="grid__span--14 main-nav__wrap">
                 <nav class="main-nav" data-showhide-content="sh-main-nav" id="main-nav">
                     <ul class="main-nav__list">
@@ -81,7 +83,7 @@ if (isset($_POST['login__submit']) && !empty($_POST['login__email']) && $_POST['
                                     <a class="main-nav__link <?= ($page->url === $currentPage) ? ' current' : ''; ?>" data-test-hook="main-nav__<?= (empty($linkTestHook) ? 'home' : $linkTestHook); ?>" href="<?= $siteRoot.$page->url; ?>">
                                         <span class="main-nav__text"><?= $page->mainNavText; ?></span>
                                     </a>
-                                    <?php if ($page->url === $currentPage): ?>
+                                    <?php if ($page->url === $currentPage && isset($page->secondaryNav)): ?>
                                     <nav class="secondary-nav">
                                         <?php include('includes/nav/'.$page->url.'.secondarynav.inc.php'); ?>
                                     </nav>
@@ -89,10 +91,14 @@ if (isset($_POST['login__submit']) && !empty($_POST['login__email']) && $_POST['
                                 </li>
                             <?php endif; ?>
                         <?php endforeach; ?>
+                        <li class="main-nav__item">
+                            <a class="main-nav__link <?= ($page->url === $currentPage) ? ' current' : ''; ?>" data-test-hook="main-nav__<?= (empty($linkTestHook) ? 'home' : $linkTestHook); ?>" href="<?= (isLoggedIn() ? $siteRoot.$pages->logout->url : $siteRoot.$pages->login->url); ?>?returnUrl=<?= $currentPage; ?>">
+                                <span class="main-nav__text"><?= (isLoggedIn() ? $pages->logout->mainNavText : $pages->login->mainNavText); ?></span>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </div>
-            <?php endif; ?>
 <!--             <a class="btn header--global__logout" data-test-hook="global-header__logout" href="<?= $pages->logout->url; ?>">
                 <span><?= $pages->logout->mainNavText; ?></span>
                 <span class="fa fa-sign-out"></span>
@@ -103,6 +109,5 @@ if (isset($_POST['login__submit']) && !empty($_POST['login__email']) && $_POST['
             </a>
         </div>
     </header>
-    <?php endif; ?>
 
     <main id="main-content">

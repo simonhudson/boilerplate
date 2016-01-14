@@ -4,6 +4,8 @@ include('fn.currentUrl.php');
 include('fn.currentPage.php');
 include('fn.getQueryStringValue.php');
 include('fn.getClient.php');
+include('fn.getReturnUrl.php');
+include('fn.isLoggedIn.php');
 include('fn.pageHeading.php');
 include('fn.renderMonthSelect.php');
 include('fn.renderNumberSelect.php');
