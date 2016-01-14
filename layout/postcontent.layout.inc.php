@@ -6,7 +6,7 @@
             <div class="grid__span--4 grid__pull-right--14">
                 <p><small>Copyright &copy; <?= $site->name.' '.date('Y'); ?></small></p>
                 <p>
-                    <a data-test-hook="footer-nav__<?= (empty($linkTestHook) ? 'home' : $linkTestHook); ?>" href="<?= (isLoggedIn() ? $siteRoot.$pages->logout->url : $siteRoot.$pages->login->url); ?>?returnUrl=<?= $currentPage; ?>">
+                    <a data-test-hook="footer-nav__<?= (isLoggedIn() ? 'logout' : 'login'); ?>" href="<?= (isLoggedIn() ? $siteRoot.$pages->logout->url : $siteRoot.$pages->login->url); ?>?returnUrl=<?= $currentPage; ?>">
                         <?= (isset($_SESSION['isLoggedIn']) ? $pages->logout->mainNavText : $pages->login->mainNavText); ?></span>
                     </a>
                 </p>

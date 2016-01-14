@@ -91,11 +91,6 @@ if (isset($_POST['login__submit']) && $_POST['login__password'] === 'admin') {
                                 </li>
                             <?php endif; ?>
                         <?php endforeach; ?>
-                        <li class="main-nav__item">
-                            <a class="main-nav__link <?= ($page->url === $currentPage) ? ' current' : ''; ?>" data-test-hook="main-nav__<?= (empty($linkTestHook) ? 'home' : $linkTestHook); ?>" href="<?= (isLoggedIn() ? $siteRoot.$pages->logout->url : $siteRoot.$pages->login->url); ?>?returnUrl=<?= $currentPage; ?>">
-                                <span class="main-nav__text"><?= (isLoggedIn() ? $pages->logout->mainNavText : $pages->login->mainNavText); ?></span>
-                            </a>
-                        </li>
                     </ul>
                 </nav>
             </div>
